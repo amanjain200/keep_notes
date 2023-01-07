@@ -1,14 +1,20 @@
+//import 'dart:js';
+import 'package:notes_app/ArchiveView.dart';
+import 'main.dart';
+import 'Settings.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_app/Settings.dart';
 import 'package:notes_app/colors.dart';
 
-class SideMenu extends StatefulWidget {
-  const SideMenu({Key? key}) : super(key: key);
+
+class SideMenuBar extends StatefulWidget {
+  const SideMenuBar({Key? key}) : super(key: key);
 
   @override
-  State<SideMenu> createState() => _SideMenuState();
+  State<SideMenuBar> createState() => _SideMenuBarState();
 }
 
-class _SideMenuState extends State<SideMenu> {
+class _SideMenuBarState extends State<SideMenuBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -84,7 +90,9 @@ Widget sectionArchive(){
                       topRight: Radius.circular(50),
                       bottomRight: Radius.circular(50)),
                 ))),
-        onPressed: () {},
+        onPressed: () {
+          //Navigator.push(context, MaterialPageRoute(builder: (context)=>ArchiveView()));
+        },
         child: Container(
           padding: EdgeInsets.all(5),
           child: Row(
@@ -117,7 +125,9 @@ Widget sectionSetting(){
                       topRight: Radius.circular(50),
                       bottomRight: Radius.circular(50)),
                 ))),
-        onPressed: () {},
+        onPressed: () {
+          //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Settings()));
+        },
         child: Container(
           padding: EdgeInsets.all(5),
           child: Row(

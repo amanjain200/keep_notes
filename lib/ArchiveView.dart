@@ -5,16 +5,14 @@ import 'package:notes_app/colors.dart';
 import 'package:notes_app/sideMenuBar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import 'SearchPage.dart';
-
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class ArchiveView extends StatefulWidget {
+  const ArchiveView({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<ArchiveView> createState() => _ArchiveViewState();
 }
 
-class _HomeState extends State<Home> {
+class _ArchiveViewState extends State<ArchiveView> {
   GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
   String note =
       "THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE";
@@ -72,25 +70,20 @@ class _HomeState extends State<Home> {
                           SizedBox(
                             width: 10,
                           ),
-                          GestureDetector(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchView()));
-                            },
-                            child: Container(
-                              height: 55,
-                              width: 200,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Search Your Notes",
-                                    style: TextStyle(
-                                        color: white.withOpacity(0.5),
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
+                          Container(
+                            height: 55,
+                            width: 200,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Search Your Notes",
+                                  style: TextStyle(
+                                      color: white.withOpacity(0.5),
+                                      fontSize: 15),
+                                ),
+                              ],
                             ),
                           )
                         ],
@@ -101,12 +94,12 @@ class _HomeState extends State<Home> {
                             //user account and view change button in search bar
                             style: ButtonStyle(
                                 overlayColor: MaterialStateColor.resolveWith(
-                                    (states) => white.withOpacity(0.1)),
+                                        (states) => white.withOpacity(0.1)),
                                 shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
+                                    RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(50)))),
+                                        BorderRadius.circular(50)))),
                             onPressed: () {},
                             child: Icon(
                               Icons.grid_view_sharp,
