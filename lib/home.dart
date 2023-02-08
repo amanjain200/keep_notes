@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/CreateNoteView.dart';
 import 'package:notes_app/NoteView.dart';
 import 'package:notes_app/colors.dart';
+import 'package:notes_app/services/db.dart';
 import 'package:notes_app/sideMenuBar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -20,6 +21,31 @@ class _HomeState extends State<Home> {
       "THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE THIS IS NOTE";
   String note1 = "THIS IS NOTE THIS IS NOTE ";
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    createEntry();
+    getAllNotes();
+  }
+
+
+  Future createEntry() async{
+    await NotesDatabase.instance.InsertEntry();
+  }
+
+  Future<String?> getAllNotes() async{
+    await NotesDatabase.instance.readAllNotes();
+  }
+
+  Future getOneNotes() async{
+    await NotesDatabase.instance.readOneNote(3);
+  }
+
+  Future updateOneNote() async{
+    await NotesDatabase.instance.updateNote(5);
+  }
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
